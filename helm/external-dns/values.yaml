@@ -1,0 +1,19 @@
+fullnameOverride: external-dns
+provider: azure
+azure:
+  resourceGroup: "<resource-group>"
+  tenantId: "<tenant-id>"
+  subscriptionId: "<subscription-id>"
+  useWorkloadIdentityExtension: true
+domainFilters:
+  - <domain>
+txtOwnerId: <txt-owner-id>
+
+serviceAccount:
+  labels:
+    azure.workload.identity/use: "true"
+  annotations:
+    azure.workload.identity/client-id: <client-id>
+
+podLabels:
+  azure.workload.identity/use: "true"
